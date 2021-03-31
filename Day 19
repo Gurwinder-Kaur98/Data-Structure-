@@ -1,0 +1,146 @@
+#I have solved some Easy level questions of DS On hacker Rank
+
+1--Print the Elements of a Linked List
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def printLinkedList(head):
+    while head is not None:
+        print(head.data)
+        head=head.next
+        
+2--Insert a Node at the Tail of a Linked List
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def insertNodeAtTail(head, data):
+    node1=SinglyLinkedListNode(data)
+    temp=head
+    temp2=head
+    if head is None:
+        head=node1
+        print(head.data)
+        return head
+    else:
+        while temp.next is not None:
+            print(temp.data)
+            temp=temp.next
+            
+        head=temp
+        print(head.data)
+        head.next=node1
+        print(head.next.data)
+        return temp2   
+3--Insert a node at the head of a linked list
+
+def insertNodeAtHead(llist, data):
+    node1=SinglyLinkedListNode(data)
+    
+    if llist is None:
+        llist=node1
+        print(llist.data)
+        return llist
+    else:
+        node1.next=llist
+        llist=node1
+        temp=llist
+        while llist is not None:
+            print(llist.data)
+            llist=llist.next
+        return temp    
+4--Insert a node at a specific position in a linked list
+
+
+def insertNodeAtPosition(head, data, position):
+    Node1=SinglyLinkedListNode(data)
+    i=0
+    temp=head
+    temp2=head
+    if position ==0:
+        Node1.next=head
+        head=Node1
+    else:
+        while i<=position-2:
+            temp=temp.next
+            i+=1
+        head=temp     
+        Node1.next=head.next
+        head.next=Node1
+        return temp2  
+            
+5--Delete a Node
+def deleteNode(head, position):
+    if position==0 and head.next is None:
+        head=None
+        return None
+    elif position==0 and head.next is not None:
+        head=head.next
+        return head
+    else:
+        temp2=head
+        temp=head
+        prevtemp=head
+        i=0
+        while i<=position-1:
+            prevtemp=temp
+            temp=temp.next
+            i+=1  
+        head=prevtemp      
+        head.next=head.next.next
+        return temp2     
+6--Print in Reverse
+def reversePrint(head):
+    if  head:
+        reversePrint(head.next)
+        print(head.data)
+    else:
+        return     
+7--Reverse a linked list
+
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def reverse(head):
+    if head is None:
+        return
+    else:
+        prev=None
+        temp=head
+        while temp:
+            next=temp.next
+            temp.next=prev
+            prev=temp
+            temp=next
+        head=prev   
+        return head 
+8--Compare two linked lists
+ Compare the data in the nodes of the linked lists to check if they are equal. If all data attributes are equal and the lists are the same length, return 1. Otherwise, return 0
+ # SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def compare_lists(llist1, llist2):
+    if llist1 is None or llist2 is None:
+        return 0
+    while llist1 is not None or llist2 is not None:
+        if llist1 is None or llist2 is None:
+            return 0
+        
+        elif llist1.data!=llist2.data:
+            return 0
+        else:
+            llist1=llist1.next
+            llist2=llist2.next
+    return 1        
+
+
+
+
+
